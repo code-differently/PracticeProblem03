@@ -9,7 +9,7 @@ public class RollerCoasterBribery {
         int queueLength = qWithoutSpaces.length();
         String originalOrder = computeOriginalOrdering(queueLength);
 
-        String minimumBribes = changeBribeQueueUntilItMatchesOriginalQueue(qWithoutSpaces, originalOrder);
+        String minimumBribes = qWithoutSpaces.equals(originalOrder) ? "0" : changeBribeQueueUntilItMatchesOriginalQueue(qWithoutSpaces, originalOrder);
         return minimumBribes;
     }
 
@@ -22,9 +22,7 @@ public class RollerCoasterBribery {
     }
 
     private static String changeBribeQueueUntilItMatchesOriginalQueue(String bribeQueue, String originalQueue) {
-        int fixedIndex = 0;
-        int changingIndex = 1;
-        int numBribes = 0;
+        int fixedIndex = 0, changingIndex = 1, numBribes = 0, bribingPosition = 0;
         char fixedPlaceInLine = bribeQueue.charAt(fixedIndex);
         char changingPlaceInLine = bribeQueue.charAt(changingIndex);
         HashMap<Character, Integer> maxBribesPerPosition = new HashMap<>();
@@ -32,7 +30,7 @@ public class RollerCoasterBribery {
 
         while(!bribeQueue.equals(originalQueue) && !exceededLimit) {
             if(fixedPlaceInLine > changingPlaceInLine) {
-                int bribingPosition = changingIndex - 1;
+                bribingPosition = changingIndex - 1;
                 maxBribesPerPosition.merge(bribeQueue.charAt(bribingPosition), 1, Integer::sum);
                 exceededLimit = maxBribesPerPosition.get(bribeQueue.charAt(bribingPosition)) > 2;
                 bribeQueue = swapPositions(bribeQueue, bribingPosition, changingIndex);

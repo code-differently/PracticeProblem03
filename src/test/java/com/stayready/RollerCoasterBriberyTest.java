@@ -23,7 +23,27 @@ public class RollerCoasterBriberyTest {
     }
 
     @Test
-    public void passesMinimumBribesTest() {
+    public void passesMinimumBribesWithNoOneTest() {
+        String expectedOutput = "0";
+
+        String queue = "";
+        String actualOutput = briberyQueue.minimumBribes(queue);
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void passesMinimumBribesWithOnePersonTest() {
+        String expectedOutput = "0";
+
+        String queue = "1";
+        String actualOutput = briberyQueue.minimumBribes(queue);
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void passesMinimumBribesWithMultiplePeopleTest() {
         String expectedOutput = "3";
 
         String queue = "2 1 5 3 4";
@@ -32,13 +52,4 @@ public class RollerCoasterBriberyTest {
         assertEquals(expectedOutput, actualOutput);
     }
 
-    @Test
-    public void passesMinimumBribesTest2() {
-        String expectedOutput = "3";
-
-        String queue = "2 1 5 3 4 6 7 8";
-        String actualOutput = briberyQueue.minimumBribes(queue);
-
-        assertEquals(expectedOutput, actualOutput);
-    }
 }
