@@ -1,18 +1,8 @@
 package com.stayready;
 
-public class Problem03 {
+import java.util.Arrays;
 
-    /**
-     * @param length length of desired array
-     * @return An integer array of ordered numbers
-     */
-    static int[] createOrderedArray(int length){
-        int[] array=new int[length];
-        for (int i = 0; i <length ; i++) {
-            array[i]=i+1;
-        }
-        return array;
-    }
+public class Problem03 {
 
     /**
      * @param array Array to check for value
@@ -48,7 +38,8 @@ public class Problem03 {
     static String minimumBribes(int[] queue){
         String output="";
         int count=0;
-        int[] orderedArray=createOrderedArray(queue.length);
+        int[] orderedArray=queue.clone();
+        Arrays.sort(orderedArray);
 
         for (int i = queue.length-1; i >-0 ; i--) {
             int currentNum=orderedArray[i];

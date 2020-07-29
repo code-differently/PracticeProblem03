@@ -6,34 +6,6 @@ import org.junit.Test;
 public class Problem03Test {
 
     @Test
-    public void createArrayTest(){
-        // Given
-        int length=4;
-        int[] expected={1,2,3,4};
-
-        // When
-        int[] actual=Problem03.createOrderedArray(length);
-
-        // Then
-        Assert.assertArrayEquals(expected,actual);
-
-    }
-
-    @Test
-    public void createArrayTest2(){
-        // Given
-        int length=8;
-        int[] expected={1,2,3,4,5,6,7,8};
-
-        // When
-        int[] actual=Problem03.createOrderedArray(length);
-
-        // Then
-        Assert.assertArrayEquals(expected,actual);
-
-    }
-
-    @Test
     public void indexTest(){
         // Given
         int expected=2;
