@@ -19,11 +19,6 @@ public class SwapPositionsHelper {
         changingIndex = detail.changingIndex;
     }
 
-    @Override
-    public String toString() {
-        return "total number of bribes per position: " + maxBribesPerPosition.size() + " exceededLimit: " + exceededLimit + " bribing position: " + bribingPosition + " number of bribes: " + numBribes + " fixed index: " + fixedIndex + " changing index: " + changingIndex;
-    }
-
     public String updateBribeQueueValues(String bribeQueue, char fixedValueInLine, char valueToPotentiallySwapWith) {
         if(fixedValueInLine > valueToPotentiallySwapWith) {
             bribingPosition = changingIndex - 1;
@@ -71,5 +66,10 @@ public class SwapPositionsHelper {
 
     public int getChangingIndex() {
         return changingIndex;
+    }
+
+    @Override
+    public String toString() {
+        return "total number of bribes per position: " + maxBribesPerPosition.size() + " exceededLimit: " + exceededLimit + " bribing position: " + bribingPosition + " number of bribes: " + numBribes + " fixed index: " + fixedIndex + " changing index: " + changingIndex;
     }
 }
