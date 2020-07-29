@@ -5,6 +5,21 @@ import org.junit.Assert;
 public class Problem03Test 
 {
     @Test
+    public void isChaoticTest()
+    {
+        //Given
+        Problem03 problem03 = new Problem03();
+        Integer[]  arr = {2, 5 ,1 ,3, 4};
+
+        //When
+        boolean expected = true;
+        boolean actual = problem03.chaotic(arr);
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void sortingTest01()
     {
         //Given
@@ -29,21 +44,6 @@ public class Problem03Test
         //When
         Integer expected = 3;
         Integer actual = problem03.bubbleSort(arr);
-
-        //Then
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void isChaoticTest()
-    {
-        //Given
-        Problem03 problem03 = new Problem03();
-        Integer[]  arr = {2, 5 ,1 ,3, 4};
-
-        //When
-        boolean expected = true;
-        boolean actual = problem03.chaotic(arr);
 
         //Then
         Assert.assertEquals(expected, actual);
