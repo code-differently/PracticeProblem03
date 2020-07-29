@@ -1,7 +1,6 @@
 package com.stayready;
 
 public class RollerCoasterBribery {
-
     public String minimumBribes(String q) {
         String qWithoutSpaces = q.replaceAll(" ", "");
         int queueLength = qWithoutSpaces.length();
@@ -35,13 +34,5 @@ public class RollerCoasterBribery {
             fixedValueInLine = bribeQueue.charAt(fixedIndex);
         }
         return swapPositionsHelper.hasExceededLimit() ? "Too Chaotic" : String.valueOf(swapPositionsHelper.getNumBribes());
-    }
-
-    private static String swapPositions(String input, int before, int after) {
-        char[] positionArray = input.toCharArray();
-        Character tempPosition = positionArray[before];
-        positionArray[before] = positionArray[after];
-        positionArray[after] = tempPosition;
-        return String.valueOf(positionArray);
     }
 }
