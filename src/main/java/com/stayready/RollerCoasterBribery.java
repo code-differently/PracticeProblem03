@@ -30,11 +30,12 @@ public class RollerCoasterBribery {
         HashMap<Character, Integer> maxBribesPerPosition = new HashMap<>();
         boolean exceededLimit = false;
 
-        while(!bribeQueue.equals(originalQueue)) {
+        while(!bribeQueue.equals(originalQueue) && !exceededLimit) {
             if(fixedPlaceInLine > changingPlaceInLine) {
-                maxBribesPerPosition.merge(bribeQueue.charAt(changingIndex - 1), 1, Integer::sum);
-                exceededLimit = maxBribesPerPosition.get(bribeQueue.charAt(changingIndex - 1)) > 2;
-                bribeQueue = swapPositions(bribeQueue, changingIndex - 1, changingIndex);
+                int bribingPosition = changingIndex - 1;
+                maxBribesPerPosition.merge(bribeQueue.charAt(bribingPosition), 1, Integer::sum);
+                exceededLimit = maxBribesPerPosition.get(bribeQueue.charAt(bribingPosition)) > 2;
+                bribeQueue = swapPositions(bribeQueue, bribingPosition, changingIndex);
                 numBribes++;
                 changingIndex = fixedIndex + 1;
             }
