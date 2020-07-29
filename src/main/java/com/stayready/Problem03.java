@@ -15,9 +15,7 @@ public class Problem03 {
                     bribes++;
                 }
             }
-            System.out.println();
         }
-        System.out.println(bribes);
         return bribes.toString();
     }
 }
