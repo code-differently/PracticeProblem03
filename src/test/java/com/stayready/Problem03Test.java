@@ -89,7 +89,6 @@ public class Problem03Test {
         Assert.assertEquals(expected, actual);
     }
 
-
     @Test
     public void cloneTest(){
         // Given
