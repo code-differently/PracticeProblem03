@@ -42,7 +42,6 @@ public class Problem03 {
     }
 
     /**
-     *
      * @param queue Array with valid integers
      * @return Minimum number of bribes used if valid
      */
