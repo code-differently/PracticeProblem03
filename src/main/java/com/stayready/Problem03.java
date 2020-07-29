@@ -1,5 +1,11 @@
 package com.stayready;
 
+
+
+
+
+
+
 public class Problem03 { 
     //create a function to determine whether too many swaps were made
     public Boolean swapChecks(Integer[] array, Integer numOfSwaps)
@@ -32,11 +38,26 @@ public class Problem03 {
         }
         return swaps; 
     }
-    //comments to it work through logic
-    // 1,2,3,4,5
-    //1,5,3,4,2
-    //array[i] = 5
-    // i =1 
-    //4
+    //The assignment also asks for returning a string i will create a method that returns String 
+    public String countSwapsv2(Integer[] array)
+    {
+        String swaps = "";
+        if (swapChecks(array, 2)== true) 
+        {
+            swaps = "Too Chaotic";
+            return swaps; 
+        }
+        Integer count = 0;
+        for (int i = 0; i < array.length-1; i++) 
+        {
+            if (array[i+1] != array[i] +1) 
+            {
+                count ++;    
+                
+            }   
+        }
+        swaps = count.toString();
+        return swaps;
+    }
 
 }

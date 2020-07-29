@@ -93,5 +93,51 @@ public class Problem03Test
         //Then 
         Assert.assertEquals(expected, actual);
     }
-
+    @Test
+    public void countSwapsv2Test()
+    {
+        //Given
+        Problem03 problem03 = new Problem03();
+        Integer [] array = {3,1,2,4,5};
+        //When 
+        String expected = "2";
+        String actual = problem03.countSwapsv2(array);
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void countSwapsv2Test2()
+    {
+        //Given
+        Problem03 problem03 = new Problem03();
+        Integer [] array = {1,2,3,4,5};
+        //When 
+        String expected = "0";
+        String actual = problem03.countSwapsv2(array);
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void countSwapsv2Test3()
+    {
+        Problem03 problem03 = new Problem03();
+        Integer[] array = {2,1,5,3,4};
+        //When
+        String expected = "3";
+        String actual = problem03.countSwapsv2(array);
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void countSwapsv2Test4()
+    {
+        //Given 
+        Problem03 problem03 = new Problem03();
+        Integer [] array = {5,4,3,2,1};
+        //When 
+        String expected = "Too Chaotic";
+        String actual = problem03.countSwapsv2(array);
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 }
