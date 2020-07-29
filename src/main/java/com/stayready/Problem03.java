@@ -1,11 +1,15 @@
 package com.stayready;
-
-
-
-
-
-
-
+/**
+ * Step 1: determine if there are too many swaps 
+ * if there are too many return too chaotic
+ * 
+ * Step 2: Iterate through the array 
+ * 
+ * Step 3: if the next element in the array is not equal to the current element plus 1 
+ * increment the swaps 
+ * 
+ * 
+ */
 public class Problem03 { 
     //create a function to determine whether too many swaps were made
     public Boolean swapChecks(Integer[] array, Integer numOfSwaps)
