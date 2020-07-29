@@ -20,7 +20,7 @@ public class RollerCoasterBribery {
 
     private static String changeBribeQueueUntilItMatchesOriginalQueue(String bribeQueue, String originalQueue) {
         SwapPositionsDetail detail = new SwapPositionsDetail();
-        SwapPositionsHelper swapPositionsHelper = new SwapPositionsHelper(detail);
+        Swap swapPositionsHelper = new SwapPositionsHelper(detail);
         char fixedValueInLine = bribeQueue.charAt(swapPositionsHelper.getFixedIndex());
         char valueToPotentiallySwapWith = bribeQueue.charAt(swapPositionsHelper.getChangingIndex());
         int fixedIndex = swapPositionsHelper.getFixedIndex();

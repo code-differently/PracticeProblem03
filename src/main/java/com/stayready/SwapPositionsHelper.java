@@ -2,7 +2,7 @@ package com.stayready;
 
 import java.util.HashMap;
 
-public class SwapPositionsHelper {
+public class SwapPositionsHelper implements Swap{
     private HashMap<Character, Integer> maxBribesPerPosition;
     private boolean exceededLimit;
     private int bribingPosition;
@@ -34,7 +34,7 @@ public class SwapPositionsHelper {
         return bribeQueue;
     }
 
-    private static String swapPositions(String input, int before, int after) {
+    public String swapPositions(String input, int before, int after) {
         char[] positionArray = input.toCharArray();
         Character tempPosition = positionArray[before];
         positionArray[before] = positionArray[after];
