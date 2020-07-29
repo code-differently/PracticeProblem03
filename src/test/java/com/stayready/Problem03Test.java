@@ -8,30 +8,40 @@ public class Problem03Test{
     
     @Test
     public void minimumBribesTest1(){
-        int[] given = {1, 2, 4, 3, 5};
-        int expected = 1;
+        int[] given = {1, 2, 3, 5, 4};
+        String  expected = "Minimum number of bribes: 1" ;
 
-        int actual = Problem03.minimumBribes(given);
+        String actual = Problem03.minimumBribes(given);
 
         Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void minimumBribesTest2(){
-        int[] given = {1, 2, 3, 4, 5};
-        int expected = 0;
+        int[] given = {2, 1, 3, 5, 4};
+        String expected = "Minimum number of bribes: 2" ;
 
-        int actual = Problem03.minimumBribes(given);
+        String actual = Problem03.minimumBribes(given);
+
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void minimumBribesTest3(){
+        int[] given = {2, 3, 1, 5, 4};
+        String expected = "Minimum number of bribes: 3" ;
+
+        String actual = Problem03.minimumBribes(given);
 
         Assert.assertEquals(actual, expected);
     }
     
     @Test
-    public void minimumBribesTest3(){
+    public void minimumBribesTest4(){
         int[] given = {5, 1, 2, 3, 4};
-        int expected = 404;
+        String expected = "Too Chaotic";
 
-        int actual = Problem03.minimumBribes(given);
+        String actual = Problem03.minimumBribes(given);
 
         Assert.assertEquals(actual, expected);
     }
