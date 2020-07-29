@@ -13,7 +13,7 @@ public class Problem03Test
         Integer[] array = {1,2,3,4,5};
         Integer numOfSwaps = 2;
         //When 
-        Boolean expected =true;
+        Boolean expected =false;
         Boolean actual = problem03.swapChecks(array, numOfSwaps);
         //Then
         Assert.assertEquals(expected, actual);
@@ -26,7 +26,7 @@ public class Problem03Test
         Integer[] array = {1,5,3,4,2};
         Integer numOfSwaps = 2;
         //When 
-        Boolean expected = false; 
+        Boolean expected = true; 
         Boolean actual = problem03.swapChecks(array, numOfSwaps);
         //Then 
         Assert.assertEquals(expected, actual);
@@ -40,7 +40,7 @@ public class Problem03Test
         Integer[] array = {2,1,5,3,4};
         Integer numOfSwaps = 2;
         //When 
-        Boolean expected = true;
+        Boolean expected = false;
         Boolean actual = problem03.swapChecks(array, numOfSwaps);
         //Then
         Assert.assertEquals(expected, actual);
