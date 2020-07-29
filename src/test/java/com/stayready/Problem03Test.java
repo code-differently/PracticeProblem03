@@ -55,7 +55,7 @@ public class Problem03Test {
     public void isChaoticTest5(){
         Problem03 problem03 = new Problem03();
 
-        String expected = "3";
+        String expected = "6";
         String actual = problem03.isChaotic(queue5);
 
         Assert.assertEquals(expected,actual);
