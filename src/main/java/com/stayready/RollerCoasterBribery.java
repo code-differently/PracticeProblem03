@@ -1,7 +1,5 @@
 package com.stayready;
 
-import java.util.HashMap;
-
 public class RollerCoasterBribery {
 
     public String minimumBribes(String q) {
@@ -22,30 +20,21 @@ public class RollerCoasterBribery {
     }
 
     private static String changeBribeQueueUntilItMatchesOriginalQueue(String bribeQueue, String originalQueue) {
-        int fixedIndex = 0, changingIndex = 1, numBribes = 0, bribingPosition = 0;
-        char fixedPlaceInLine = bribeQueue.charAt(fixedIndex);
-        char changingPlaceInLine = bribeQueue.charAt(changingIndex);
-        HashMap<Character, Integer> maxBribesPerPosition = new HashMap<>();
-        boolean exceededLimit = false;
+        SwapPositionsDetail detail = new SwapPositionsDetail();
+        SwapPositionsHelper swapPositionsHelper = new SwapPositionsHelper(detail);
+        char fixedValueInLine = bribeQueue.charAt(swapPositionsHelper.getFixedIndex());
+        char valueToPotentiallySwapWith = bribeQueue.charAt(swapPositionsHelper.getChangingIndex());
+        int fixedIndex = swapPositionsHelper.getFixedIndex();
 
-        while(!bribeQueue.equals(originalQueue) && !exceededLimit) {
-            if(fixedPlaceInLine > changingPlaceInLine) {
-                bribingPosition = changingIndex - 1;
-                maxBribesPerPosition.merge(bribeQueue.charAt(bribingPosition), 1, Integer::sum);
-                exceededLimit = maxBribesPerPosition.get(bribeQueue.charAt(bribingPosition)) > 2;
-                bribeQueue = swapPositions(bribeQueue, bribingPosition, changingIndex);
-                numBribes++;
-                changingIndex = fixedIndex + 1;
-            }
-            else {
-                changingIndex++;
-            }
+        while(!bribeQueue.equals(originalQueue) && !swapPositionsHelper.hasExceededLimit()) {
+            bribeQueue = swapPositionsHelper.updateBribeQueueValues(bribeQueue, fixedValueInLine, valueToPotentiallySwapWith);
             //only advance the fixed index if the element at the fixed index matches the original index
-            fixedIndex = bribeQueue.charAt(fixedIndex) == originalQueue.charAt(fixedIndex) ? fixedIndex + 1 : fixedIndex;
-            changingPlaceInLine = bribeQueue.charAt(changingIndex);
-            fixedPlaceInLine = bribeQueue.charAt(fixedIndex);
+            fixedIndex = bribeQueue.charAt(fixedIndex) == originalQueue.charAt(fixedIndex) ? swapPositionsHelper.getFixedIndex() + 1 : swapPositionsHelper.getFixedIndex();
+            swapPositionsHelper.setFixedIndex(fixedIndex);
+            valueToPotentiallySwapWith = bribeQueue.charAt(swapPositionsHelper.getChangingIndex());
+            fixedValueInLine = bribeQueue.charAt(fixedIndex);
         }
-        return exceededLimit ? "Too Chaotic" : String.valueOf(numBribes);
+        return swapPositionsHelper.hasExceededLimit() ? "Too Chaotic" : String.valueOf(swapPositionsHelper.getNumBribes());
     }
 
     private static String swapPositions(String input, int before, int after) {
