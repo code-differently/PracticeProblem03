@@ -10,6 +10,16 @@ public class Problem03Test {
   int[] b = {2, 1, 5, 3, 4}; 
   int[] c = {2, 5, 1, 3, 4}; 
 
+  @Test
+  public void convertToArrayTest(){
+    String s = "queue = \"2 1 5 3 4\"";
+    int[] expected = {2, 1, 5, 3, 4}; 
+
+    int[] actual = p.convertToArray(s);
+
+    Assert.assertArrayEquals(expected, actual);
+  }
+
   @Test 
   public void countMinSwapsTest(){
     int expected = 3; 

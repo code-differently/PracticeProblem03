@@ -24,6 +24,23 @@ package com.stayready;
 
   */
 public class Problem03 {
+  //turn the string into an array
+  //example input: queue = "2 3 1 4 5"
+  public int[] convertToArray(String s){
+    s = s.replace("queue = ", ""); 
+    s = s.replace("\"", "");
+    String[] arr = s.split(" "); 
+    int length = arr.length; 
+
+    int[] array = new int[length];
+
+    for(int i = 0; i < length; i++){
+      array[i] = Integer.parseInt(arr[i]);
+    }
+
+    return array;
+  }
+
   //in order to test, my method returns -1 if too chaotic
   public int countMinSwaps(int[] array){
     int minSwaps = 0;
