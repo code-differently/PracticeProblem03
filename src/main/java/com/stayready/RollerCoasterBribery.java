@@ -25,13 +25,13 @@ public class RollerCoasterBribery {
         int fixedIndex = 0;
         int changingIndex = 1;
         int numBribes = 0;
-        char fixedPositionTicket = bribeQueue.charAt(fixedIndex);
-        char changingPositionTicket = bribeQueue.charAt(changingIndex);
+        char fixedPlaceInLine = bribeQueue.charAt(fixedIndex);
+        char changingPlaceInLine = bribeQueue.charAt(changingIndex);
         HashMap<Character, Integer> maxBribesPerPosition = new HashMap<>();
         boolean exceededLimit = false;
 
         while(!bribeQueue.equals(originalQueue)) {
-            if(fixedPositionTicket > changingPositionTicket) {
+            if(fixedPlaceInLine > changingPlaceInLine) {
                 maxBribesPerPosition.merge(bribeQueue.charAt(changingIndex - 1), 1, Integer::sum);
                 exceededLimit = maxBribesPerPosition.get(bribeQueue.charAt(changingIndex - 1)) > 2;
                 bribeQueue = swapPositions(bribeQueue, changingIndex - 1, changingIndex);
@@ -41,9 +41,10 @@ public class RollerCoasterBribery {
             else {
                 changingIndex++;
             }
+            //only advance the fixed index if the element at the fixed index matches the original index
             fixedIndex = bribeQueue.charAt(fixedIndex) == originalQueue.charAt(fixedIndex) ? fixedIndex + 1 : fixedIndex;
-            changingPositionTicket = bribeQueue.charAt(changingIndex);
-            fixedPositionTicket = bribeQueue.charAt(fixedIndex);
+            changingPlaceInLine = bribeQueue.charAt(changingIndex);
+            fixedPlaceInLine = bribeQueue.charAt(fixedIndex);
         }
         return exceededLimit ? "Too Chaotic" : String.valueOf(numBribes);
     }
